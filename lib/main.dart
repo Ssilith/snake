@@ -192,8 +192,8 @@ class _MyHomePageState extends State<MyHomePage> {
               child: GridView.builder(
                 itemCount: numberOfSquares,
                 physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 15),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: numberOfSquaresInRow),
                 itemBuilder: (context, index) {
                   if (index == snake.last) {
                     return const Tile(color: Colors.red);
