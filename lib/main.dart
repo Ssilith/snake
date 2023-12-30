@@ -44,6 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
     direction = Directions.down;
     snake = [33, 48, 63, 78, 93];
     counter = 0;
+    randomNumber = 83;
     if (hasGameStarted) {
       setState(() {
         hasGameStarted = false;
