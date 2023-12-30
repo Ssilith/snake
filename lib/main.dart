@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void moveDown() {
-    if (snake.last > numberOfSquares - numberOfSquaresInRow) {
+    if (snake.last >= numberOfSquares - numberOfSquaresInRow) {
       snake.add(snake.last + numberOfSquaresInRow - numberOfSquares);
     } else {
       snake.add(snake.last + numberOfSquaresInRow);
