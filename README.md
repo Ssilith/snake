@@ -2,6 +2,8 @@
 
 A classic Snake game built using **Flutter**. Control the snake, eat food, grow longer, and avoid collisions with walls or yourself.
 
+🎮 **[Play it in your browser](https://ssilith.github.io/snake/)**
+
 ## 📱 Features
 
 - Random food generation
