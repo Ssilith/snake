@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snake/core/services/game_assets.dart';
+import 'package:snake/widgets/snake_loader.dart';
 
 class ImagePreloader extends StatefulWidget {
   final Widget child;
@@ -25,6 +26,7 @@ class _ImagePreloaderState extends State<ImagePreloader> {
       await precacheImage(_assets[i], context);
       setState(() => _loadedAssets = i + 1);
     }
+    await Future.delayed(const Duration(milliseconds: 500));
     setState(() => _isDone = true);
   }
 
@@ -37,11 +39,7 @@ class _ImagePreloaderState extends State<ImagePreloader> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              height: 50,
-              width: 50,
-              child: CircularProgressIndicator(value: percentage),
-            ),
+            SizedBox(width: 300, child: SnakeLoader(progress: percentage)),
             const SizedBox(height: 20),
             Text(
               'Loading... ${(_loadedAssets)}/${_assets.length}',
