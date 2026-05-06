@@ -1,0 +1,1 @@
+ C:\\Users\\KatarzynaHajduk\\Documents\\GitHub\\snake\\.dart_tool\\flutter_build\\5cca1a6b291e9794f9b9f0430ddc5b15\\dart_build_result.json: 
