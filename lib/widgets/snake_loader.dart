@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class SnakeLoader extends StatelessWidget {
   final double progress;
-
   const SnakeLoader({super.key, required this.progress});
 
   @override
