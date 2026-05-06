@@ -47,91 +47,95 @@ class SnakeDrawer extends StatelessWidget {
               const DrawerTitle(title: "SNAKE"),
               _divider(),
               Expanded(
-                child: Column(
-                  children: [
-                    //* Total Score
-                    StatisticsCard(
-                      title: 'Score',
-                      color: cs.primary,
-                      icon: Icons.stars_rounded,
-                      value: '${gameState.score}',
-                    ),
-                    _divider(),
-                    //* Start / Restart button
-                    SizedBox(
-                      width: double.maxFinite,
-                      child: GameButton(
-                        onTap: onStartGame,
-                        title: gameState.hasStarted ? 'RESTART' : 'START GAME',
-                        iconData: gameState.hasStarted
-                            ? Icons.refresh_rounded
-                            : Icons.play_arrow_rounded,
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      //* Total Score
+                      StatisticsCard(
+                        title: 'Score',
+                        color: cs.primary,
+                        icon: Icons.stars_rounded,
+                        value: '${gameState.score}',
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                    //* Pause button
-                    PauseButton(
-                      gameState: gameState,
-                      onTogglePause: onTogglePause,
-                    ),
-                    _divider(),
-                    //* Game Info
-                    GameInfoTitle(
-                      iconData: Icons.info_rounded,
-                      title: 'GAME INFO',
-                      items: [
-                        GameInfoItem(
-                          icon: Icons.speed_rounded,
-                          title: 'Speed',
-                          value: _levelLabel,
+                      _divider(),
+                      //* Start / Restart button
+                      SizedBox(
+                        width: double.maxFinite,
+                        child: GameButton(
+                          onTap: onStartGame,
+                          title: gameState.hasStarted
+                              ? 'RESTART'
+                              : 'START GAME',
+                          iconData: gameState.hasStarted
+                              ? Icons.refresh_rounded
+                              : Icons.play_arrow_rounded,
                         ),
-                        GameInfoItem(
-                          icon: Icons.straighten_rounded,
-                          title: 'Length',
-                          value: '${gameState.snake.length}',
-                        ),
-                        GameInfoItem(
-                          icon: Icons.apple_rounded,
-                          title: 'Apples',
-                          value: '${gameState.applesCollected}',
-                        ),
-                      ],
-                    ),
-                    _divider(),
-                    //* Controls
-                    const GameInfoTitle(
-                      iconData: Icons.gamepad_rounded,
-                      title: 'CONTROLS',
-                      items: [
-                        GameInfoItem(
-                          icon: Icons.keyboard,
-                          title: 'Arrow Keys / WASD',
-                        ),
-                        GameInfoItem(
-                          icon: Icons.keyboard_return,
-                          title: 'Enter to start game',
-                        ),
-                        GameInfoItem(
-                          icon: Icons.pause_circle_outline,
-                          title: 'Space to pause / resume',
-                        ),
-                        GameInfoItem(
-                          icon: Icons.apple,
-                          title: 'Collect apples',
-                        ),
-                        GameInfoItem(
-                          icon: Icons.warning_amber_rounded,
-                          title: 'Avoid walls',
-                        ),
-                      ],
-                    ),
-                    _divider(),
-                    const Spacer(),
-                    //* Status
-                    GameStatusIndicator(gameState: gameState),
-                  ],
+                      ),
+                      const SizedBox(height: 8),
+                      //* Pause button
+                      PauseButton(
+                        gameState: gameState,
+                        onTogglePause: onTogglePause,
+                      ),
+                      _divider(),
+                      //* Game Info
+                      GameInfoTitle(
+                        iconData: Icons.info_rounded,
+                        title: 'GAME INFO',
+                        items: [
+                          GameInfoItem(
+                            icon: Icons.speed_rounded,
+                            title: 'Speed',
+                            value: _levelLabel,
+                          ),
+                          GameInfoItem(
+                            icon: Icons.straighten_rounded,
+                            title: 'Length',
+                            value: '${gameState.snake.length}',
+                          ),
+                          GameInfoItem(
+                            icon: Icons.apple_rounded,
+                            title: 'Apples',
+                            value: '${gameState.applesCollected}',
+                          ),
+                        ],
+                      ),
+                      _divider(),
+                      //* Controls
+                      const GameInfoTitle(
+                        iconData: Icons.gamepad_rounded,
+                        title: 'CONTROLS',
+                        items: [
+                          GameInfoItem(
+                            icon: Icons.keyboard,
+                            title: 'Arrow Keys / WASD',
+                          ),
+                          GameInfoItem(
+                            icon: Icons.keyboard_return,
+                            title: 'Enter to start game',
+                          ),
+                          GameInfoItem(
+                            icon: Icons.pause_circle_outline,
+                            title: 'Space to pause / resume',
+                          ),
+                          GameInfoItem(
+                            icon: Icons.apple,
+                            title: 'Collect apples',
+                          ),
+                          GameInfoItem(
+                            icon: Icons.warning_amber_rounded,
+                            title: 'Avoid walls',
+                          ),
+                        ],
+                      ),
+                      _divider(),
+                    ],
+                  ),
                 ),
               ),
+              //* Status
+              GameStatusIndicator(gameState: gameState),
             ],
           ),
         ),
